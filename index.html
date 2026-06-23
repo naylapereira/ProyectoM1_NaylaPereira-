@@ -15,41 +15,43 @@
 
     <main>
 
-        <label for="palette-size">
-           Cantidad de colores
-        </label>
+        <section class="controls">
 
-        <select id="palette-size">
-            <option value="6">6 colores</option>
-            <option value="8">8 colores</option>
-            <option value="9">9 colores</option>
-        </select>
+            <label for="palette-size">
+                Cantidad de colores
+            </label>
 
-        <div class="format-switch">
+            <select id="palette-size">
+                <option value="6">6 colores</option>
+                <option value="8">8 colores</option>
+                <option value="9">9 colores</option>
+            </select>
 
-         <button id="hex-btn" type="button">
+            <div class="format-switch">
 
-             HEX
+                <button id="hex-btn" type="button">
+                    HEX
+                </button>
 
-        </button>
+                <button id="hsl-btn" type="button">
+                    HSL
+                </button>
 
-        <button id="hsl-btn" type="button">
+            </div>
 
-            HSL
+            <button id="generate-btn">
+                🎨 Generar Paleta
+            </button>
 
-        </button>
+        </section>
 
-        </div>
-
-        <button id="generate-btn">
-            🎨 Generar Paleta
-        </button>
-
-        <section id="palette-container">
+        <section
+            id="palette-container"
+            class="palette-container">
         </section>
 
     </main>
-
+    
     <footer>
         <p>Proyecto Integrador Módulo 1 - Nayla Pereira</p>
     </footer>
