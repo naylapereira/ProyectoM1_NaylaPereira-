@@ -1,5 +1,6 @@
 const generateBtn = document.getElementById("generate-btn");
 const paletteContainer = document.getElementById("palette-container");
+const paletteSize = document.getElementById("palette-size");
 
 function randomColor() {
 
@@ -20,7 +21,9 @@ function generatePalette() {
 
     paletteContainer.innerHTML = "";
 
-    for(let i = 0; i < 6; i++) {
+    const amount = Number(paletteSize.value);
+
+    for(let i = 0; i < amount; i++) {
 
         const card = document.createElement("div");
 

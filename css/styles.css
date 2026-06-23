@@ -86,3 +86,25 @@ footer {
 
     font-weight: bold;
 }
+
+label {
+
+    display: block;
+
+    text-align: center;
+
+    margin-bottom: .5rem;
+}
+
+select {
+
+    display: block;
+
+    margin: auto;
+
+    margin-bottom: 1rem;
+
+    padding: .6rem;
+
+    border-radius: 8px;
+}
