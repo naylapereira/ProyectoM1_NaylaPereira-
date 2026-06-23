@@ -183,6 +183,11 @@ generateBtn.addEventListener(
     generatePalette
 );
 
+paletteSize.addEventListener(
+    "change",
+    generatePalette
+);
+
 hexBtn.addEventListener("click", () => {
 
     currentFormat = "hex";
@@ -204,3 +209,5 @@ hslBtn.addEventListener("click", () => {
 
     updateFormat();
 });
+
+generatePalette();
