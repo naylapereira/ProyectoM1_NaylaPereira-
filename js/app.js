@@ -9,6 +9,8 @@ let currentFormat = "hex";
 
 let currentPalette = [];
 
+let previousPaletteSize = Number(paletteSize.value);
+
 let lockedColors = [];
 
 function randomHexColor() {
@@ -244,9 +246,24 @@ generateBtn.addEventListener(
     generatePalette
 );
 
-paletteSize.addEventListener(
-    "change",
-    generatePalette
-);
+paletteSize.addEventListener("change", () => {
+    const newSize = Number(paletteSize.value);
+
+    if (lockedColors.length > newSize) {
+        const confirmed = confirm(
+            `Tienes ${lockedColors.length} colores bloqueados. Al reducir la paleta a ${newSize}, se perderán los que no entren.\n¿Deseas continuar?`
+        );
+
+        if (!confirmed) {
+            paletteSize.value = previousPaletteSize;
+            return;
+        }
+
+        lockedColors = lockedColors.slice(0, newSize);
+    }
+
+    previousPaletteSize = newSize;
+    generatePalette();
+});
 
 generatePalette();
