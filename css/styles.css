@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+    padding:2rem;
+}
+
+header{
+    text-align:center;
+    margin-bottom:2rem;
+}
+
+#generate-btn{
+    display:block;
+    margin:auto;
+    padding:1rem 2rem;
+    cursor:pointer;
+}
+
+#palette-container{
+    margin-top:2rem;
+}
