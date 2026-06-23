@@ -1,6 +1,21 @@
 const generateBtn = document.getElementById("generate-btn");
 const paletteContainer = document.getElementById("palette-container");
 const paletteSize = document.getElementById("palette-size");
+const hexBtn = document.getElementById("hex-btn");
+const hslBtn = document.getElementById("hsl-btn");
+
+console.log(hexBtn);
+console.log(hslBtn);
+
+let currentFormat = "hex";
+
+window.addEventListener("load", () => {
+
+    hexBtn.classList.add("active-format");
+
+});
+
+let currentPalette = [];
 
 function randomColor() {
 
@@ -56,6 +71,8 @@ function generatePalette() {
 
     paletteContainer.innerHTML = "";
 
+    currentPalette = [];
+
     const amount = Number(paletteSize.value);
 
     if (amount === 6) {
@@ -81,6 +98,11 @@ function generatePalette() {
         const hexColor =
             hslToHex(hue, 70, 75);
 
+        currentPalette.push({
+           hsl: color,
+           hex: hexColor
+        });
+
         card.classList.add("color-card");
 
         card.innerHTML = `
@@ -90,7 +112,11 @@ function generatePalette() {
             </div>
 
             <p class="color-code">
-                ${hexColor}
+                ${
+                    currentFormat === "hex"
+                        ? hexColor
+                        : color
+                }
             </p>
         `;
 
@@ -98,7 +124,42 @@ function generatePalette() {
     }
 }
 
+function updateFormat() {
+
+    const codes = document.querySelectorAll(".color-code");
+
+    codes.forEach((code, index) => {
+
+        code.textContent =
+            currentFormat === "hex"
+                ? currentPalette[index].hex
+                : currentPalette[index].hsl;
+    });
+}
+
 generateBtn.addEventListener(
     "click",
     generatePalette
 );
+
+hexBtn.addEventListener("click", () => {
+
+    currentFormat = "hex";
+
+    hexBtn.classList.add("active-format");
+
+    hslBtn.classList.remove("active-format");
+
+    updateFormat();
+});
+
+hslBtn.addEventListener("click", () => {
+
+    currentFormat = "hsl";
+
+    hslBtn.classList.add("active-format");
+
+    hexBtn.classList.remove("active-format");
+
+    updateFormat();
+});
