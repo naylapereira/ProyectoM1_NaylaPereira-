@@ -131,3 +131,51 @@ select {
 
     color: white !important;
 }
+
+.color-code-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: .5rem;
+
+    padding: 1rem;
+}
+
+.copy-btn {
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.toast {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    background: #333;
+
+    color: white;
+
+    padding: 1rem;
+
+    border-radius: 8px;
+
+    opacity: 0;
+
+    transition: .3s;
+}
+
+.toast.show {
+
+    opacity: 1;
+}

@@ -9,6 +9,8 @@ console.log(hslBtn);
 
 let currentFormat = "hex";
 
+const toast = document.getElementById("toast");
+
 window.addEventListener("load", () => {
 
     hexBtn.classList.add("active-format");
@@ -67,6 +69,19 @@ function hslToHex(h, s, l) {
         b.toString(16).padStart(2, "0");
 }
 
+function showToast(message) {
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 1500);
+}
+
 function generatePalette() {
 
     paletteContainer.innerHTML = "";
@@ -111,16 +126,42 @@ function generatePalette() {
                 style="background:${color}">
             </div>
 
-            <p class="color-code">
-                ${
-                    currentFormat === "hex"
-                        ? hexColor
-                        : color
-                }
-            </p>
+            <div class="color-code-container">
+
+                <span class="color-code">
+
+                    ${
+                        currentFormat === "hex"
+                            ? hexColor
+                            : color
+                    }
+
+                </span>
+
+                <button class="copy-btn">
+                    📋
+                </button>
+
+            </div>
         `;
 
         paletteContainer.appendChild(card);
+
+        const copyBtn =
+            card.querySelector(".copy-btn");
+
+        copyBtn.addEventListener("click", () => {
+
+            navigator.clipboard.writeText(
+
+                currentFormat === "hex"
+                    ? hexColor
+                    : color
+
+            );
+
+            showToast("Codigo copiado");
+        });
     }
 }
 
