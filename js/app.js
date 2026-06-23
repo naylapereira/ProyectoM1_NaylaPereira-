@@ -23,6 +23,17 @@ function generatePalette() {
 
     const amount = Number(paletteSize.value);
 
+    if (amount === 6) {
+        paletteContainer.style.gridTemplateColumns =
+            "repeat(3, 180px)";
+    } else if (amount === 8) {
+        paletteContainer.style.gridTemplateColumns =
+            "repeat(4, 180px)";
+    } else {
+        paletteContainer.style.gridTemplateColumns =
+            "repeat(3, 180px)";
+    }
+
     for(let i = 0; i < amount; i++) {
 
         const card = document.createElement("div");
