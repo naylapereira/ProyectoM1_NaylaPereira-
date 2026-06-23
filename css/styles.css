@@ -49,3 +49,40 @@ footer {
     padding: 2rem;
     color: #666;
 }
+
+.palette-container,
+#palette-container {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 180px);
+
+    gap: 1rem;
+
+    justify-content: center;
+}
+
+.color-card {
+
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.color-preview {
+
+    height: 140px;
+}
+
+.color-code {
+
+    text-align: center;
+
+    padding: 1rem;
+
+    font-weight: bold;
+}
