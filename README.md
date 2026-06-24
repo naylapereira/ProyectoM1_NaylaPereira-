@@ -36,6 +36,11 @@ Aplicación web desarrollada con HTML, CSS y JavaScript que permite generar pale
 2. Abrir la carpeta del proyecto.
 3. Ejecutar `index.html` o utilizar Live Server.
 
+o
+
+Acceder a la versión en linea mediante el enlace disponible:
+https://naylapereira.github.io/ProyectoM1_NaylaPereira-/
+
 ---
 
 ## Capturas de la aplicación
